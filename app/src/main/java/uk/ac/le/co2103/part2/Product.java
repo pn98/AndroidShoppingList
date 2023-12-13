@@ -11,15 +11,18 @@ public class Product {
     @NonNull
     @ColumnInfo(name = "name")
     public String name;
+
     @ColumnInfo(name = "id")
     public int id;
+
     @ColumnInfo(name = "quantity")
     public int quantity;
+
     @ColumnInfo(name = "unit")
     public String unit;
+
     @ColumnInfo(name = "shoppingListId")
     public String shoppingListId;
-
 
     public Product(@NonNull String name, int id, int quantity, String unit, String shoppingListId) {
         this.name = name;
@@ -30,11 +33,7 @@ public class Product {
     }
 
     public Product() {
-
-    }
-
-    public String getProduct() {
-        return name;
+        // Default constructor
     }
 
     public String getName() {
