@@ -19,13 +19,12 @@ public class CreateListActivity extends AppCompatActivity {
     public static final int SELECT_Image = 100;
     private EditText editTextProduct;
     private ImageView imgList;
-    private String imageURL="";
+    private String imageURL = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_list);
-
-
 
 
         editTextProduct = findViewById(R.id.edit_new_product);
@@ -48,7 +47,9 @@ public class CreateListActivity extends AppCompatActivity {
         });
 
 
-        imgList.setOnClickListener(view -> {pickFromGallery();});
+        imgList.setOnClickListener(view -> {
+            pickFromGallery();
+        });
     }
 
     private void pickFromGallery() {
@@ -62,25 +63,17 @@ public class CreateListActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            //For android 11 and above
-
-            if (resultCode == RESULT_OK) {
-                if (requestCode == SELECT_Image) {
-                    //handle image
-                    Uri selectedImageUri = data.getData();
-
-
-                    Log.d("comeOn_comeOn", "image");
-
-                    imgList.setImageURI(selectedImageUri);
-
-                    imageURL = String.valueOf(selectedImageUri);
-
-
-                }
-
+            // For android 11 and above
+            if (requestCode == SELECT_Image) {
+                // handle image
+                Uri selectedImageUri = data.getData();
+                Log.d("comeOn_comeOn", "image");
+                imgList.setImageURI(selectedImageUri);
+                imageURL = String.valueOf(selectedImageUri);
             }
-
         }
     }
 }
+
+
+

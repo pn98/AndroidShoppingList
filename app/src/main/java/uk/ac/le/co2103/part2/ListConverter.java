@@ -3,13 +3,14 @@ package uk.ac.le.co2103.part2;
 import androidx.room.TypeConverter;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.List;
 
 public class ListConverter {
-    private static Gson gson = new Gson();
+    private static Gson gson = new GsonBuilder().create();
 
     @TypeConverter
     public static List<Product> fromJson(String json) {
@@ -21,5 +22,4 @@ public class ListConverter {
     public static String toJson(List<Product> products) {
         return gson.toJson(products);
     }
-
 }

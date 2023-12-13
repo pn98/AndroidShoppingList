@@ -34,7 +34,7 @@ public class AddShoppingListActivity extends AppCompatActivity {
                 Log.i(TAG, "Empty text field could be controlled in UI (Save Button Disabled");
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
-                Log.i(TAG, "Adding Item to List");
+                Log.i(TAG, "Adding Shopping List");
                 String shoppingList = editTextShoppingList.getText().toString();
                 replyIntent.putExtra(EXTRA_REPLY, shoppingList);
                 setResult(RESULT_OK, replyIntent);
