@@ -81,5 +81,6 @@ public class CreateListActivity extends AppCompatActivity {
 
             }
 
-        }}
+        }
+    }
 }
