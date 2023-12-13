@@ -7,8 +7,8 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class ProductRepository {
-    private ProductDao productDao;
-    private LiveData<List<Product>> allProducts;
+    private final ProductDao productDao;
+    private final LiveData<List<Product>> allProducts;
 
     ProductRepository(Application application) {
         ProductDB db = ProductDB.getDatabase(application);
@@ -20,23 +20,36 @@ public class ProductRepository {
         return allProducts;
     }
 
-    void insert(Product product) {
+    void insertAsync(Product product) {
         ProductDB.databaseWriteExecutor.execute(() -> {
-
-            productDao.insert(product);
+            try {
+                productDao.insert(product);
+            } catch (Exception e) {
+                // Handle error
+                e.printStackTrace();
+            }
         });
     }
-    void update(Product product) {
-        ProductDB.databaseWriteExecutor.execute(() -> {
 
-            productDao.update(product);
+    void updateAsync(Product product) {
+        ProductDB.databaseWriteExecutor.execute(() -> {
+            try {
+                productDao.update(product);
+            } catch (Exception e) {
+                // Handle error
+                e.printStackTrace();
+            }
         });
     }
 
-    void delete(Product product) {
+    void deleteAsync(Product product) {
         ProductDB.databaseWriteExecutor.execute(() -> {
-
-            productDao.delete(product);
+            try {
+                productDao.delete(product);
+            } catch (Exception e) {
+                // Handle error
+                e.printStackTrace();
+            }
         });
     }
 }
