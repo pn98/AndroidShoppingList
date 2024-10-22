@@ -1,6 +1,6 @@
 # Android_ShoppingList
 
-A simple Android app for managing shopping lists. Users can create lists, add products, and delete lists. The app includes basic validation checks.
+Android app for managing shopping lists. Users can create lists, add products, and delete lists. The app includes validation checks.
 
 Features
 
